@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
+mongoose.set('strictQuery', false)
 
-const userModelSchema = mongoose.Schema(
+const userSchema = mongoose.Schema(
   {
     name: {
       type: String,
@@ -25,4 +26,4 @@ const userModelSchema = mongoose.Schema(
     timestamps: true,
   }
 )
-module.exports = ('User', userModelSchema)
+module.exports = mongoose.model('User', userSchema)
