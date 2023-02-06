@@ -1,6 +1,6 @@
-import mongoose from 'mongoose'
-import colors from 'colors'
-import dotenv from 'dotenv'
+const mongoose = require('mongoose')
+require('colors')
+require('dotenv')
 
 const connectDB = async () => {
   console.log(process.env.MONGO_URI)
@@ -13,4 +13,4 @@ const connectDB = async () => {
   }
 }
 
-export default connectDB
+module.exports = connectDB
