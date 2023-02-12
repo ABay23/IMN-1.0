@@ -9,7 +9,7 @@ const Home = () => {
           {/* <FaHamburger className=' text-blue-700 text-4xl' /> */}
           <h1 className='text-center  w-max text-4xl'>Inventory Management</h1>
         </div>
-        <p className='text-center text-2xl font-bold px-40 indent-2'>
+        <p className='text-center text-2xl font-bold md:px-40 md:max-w-4xl indent-2 '>
           How Can I help you today?
         </p>
       </section>

@@ -9,6 +9,7 @@ const Header = () => {
       <nav className='bg-white border-gray-200 px-0 sm:px-4 py-4 dark:bg-blue-800 relative w-full flex justify-between'>
         <div className='container flex justify-between mx-3'>
           <div>
+            <label></label>
             <GiHamburgerMenu className='h-5 w-5 text-gray-200 justify-start' />
           </div>
           <ul className='flex justify-end space-x-7 w-1/3 '>
