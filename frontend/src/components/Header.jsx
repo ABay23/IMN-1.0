@@ -1,7 +1,9 @@
 import { GiHamburgerMenu } from 'react-icons/gi'
 import { FaHome, FaClipboardList } from 'react-icons/fa'
 import { RiLoginCircleFill } from 'react-icons/ri'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
+import { logout, reset } from '../features/auth/authSlice'
 
 const Header = () => {
   return (
