@@ -6,30 +6,56 @@ const ticketSchema = mongoose.Schema(
     user: {
       type: mongoose.Schema.Types.ObjectId,
       required: true,
-      ref: user,
+      ref: 'User',
     },
-    productName: {
+    product: {
       type: String,
-      required: [true, 'Please add the name of the product'],
-      unique: true,
+      required: [true, 'Please select a product'],
+      enum: ['iPhone', 'Macbook Pro', 'iMac', 'iPad'],
     },
-    email: {
+    description: {
       type: String,
-      required: [true, 'Please add an email'],
-      unique: true,
+      required: [true, 'Please enter a description of the issue'],
     },
-    password: {
+    status: {
       type: String,
-      required: [true, 'Please add a Password'],
-    },
-    isAdmin: {
-      type: Boolean,
       required: true,
-      default: false,
+      enum: ['new', 'open', 'closed'],
+      default: 'new',
     },
   },
   {
     timestamps: true,
   }
 )
-module.exports = mongoose.model('User', ticketSchema)
+// {
+//   user: {
+//     type: mongoose.Schema.Types.ObjectId,
+//     required: true,
+//     ref: 'User',
+//   },
+//   productName: {
+//     type: String,
+//     required: [true, 'Please add the name of the product'],
+//     unique: true,
+//   },
+//   email: {
+//     type: String,
+//     required: [true, 'Please add an email'],
+//     unique: true,
+//   },
+//   password: {
+//     type: String,
+//     required: [true, 'Please add a Password'],
+//   },
+//   isAdmin: {
+//     type: Boolean,
+//     required: true,
+//     default: false,
+//   },
+// },
+// {
+//   timestamps: true,
+// }
+// )
+module.exports = mongoose.model('Ticket', ticketSchema)
