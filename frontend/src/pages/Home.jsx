@@ -15,7 +15,7 @@ const Home = () => {
       </section>
       <section className=' flex justify-center align-top max-w-md px-6 mx-auto py-4 md:max-w-4xl antialiased space-x-3'>
         <FaHamburger className=' text-blue-700 text-4xl justify-center' />
-        <Link to={'/new-item'}>
+        <Link to={'/new-ticket'}>
           <button className='text-center w-50 inline-block py-2 px-12 border-2 border-blue-500 text-blue-500 font-medium leading-tight uppercase text-sm rounded-full hover:bg-black hover:bg-opacity-10 focus:outline-none focus:ring-0 transition duration-150 ease-in-out'>
             Create New Item
           </button>
