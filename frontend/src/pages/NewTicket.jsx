@@ -1,15 +1,37 @@
-import { useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useState, useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { toast } from 'react-toastify'
+import { useNavigate } from 'react-router-dom'
+import { createTicket, reset } from '../features/tickets/ticketSlice'
 
 const NewTicket = () => {
   const { user } = useSelector((state) => state.auth)
+  const { isLoading, isSuccess, isError, message } = useSelector(
+    (state) => state.ticket
+  )
   const [name] = useState(user.name)
   const [email] = useState(user.email)
   const [product, setProduct] = useState('')
-  const [description, setdDscription] = useState('')
+  const [description, setDescription] = useState('')
+
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    if (isError) {
+      toast.error(message)
+    }
+
+    if (isSuccess) {
+      dispatch(reset())
+      navigate('/tickets')
+    }
+    dispatch(reset())
+  }, [dispatch, isError, isSuccess, navigate, message])
 
   const onSubmit = (e) => {
     e.preventDefault()
+    dispatch(createTicket({ product, description }))
   }
   return (
     <div>
@@ -57,6 +79,28 @@ const NewTicket = () => {
                   <option value='iPad'>iPad</option>
                   <option value='iMac'>iMac</option>
                 </select>
+                <div>
+                  <label
+                    htmlFor='
+                  '
+                  >
+                    <textarea
+                      id=''
+                      cols='40'
+                      rows='20'
+                      name='description'
+                      placeholder='Description'
+                      value={description}
+                      onChange={(e) => setDescription(e.target.value)}
+                    ></textarea>
+                  </label>
+                </div>
+                <button
+                  className=' g-blue-500 bg-blue-700 text-white font-bold py-2 px-4 rounded'
+                  onSubmit={onSubmit}
+                >
+                  Submit
+                </button>
               </label>
             </form>
           </div>
