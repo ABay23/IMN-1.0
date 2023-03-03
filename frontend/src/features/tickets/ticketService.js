@@ -2,7 +2,7 @@
 
 import axios from 'axios'
 
-const API_URL = '/tickets/create'
+const API_URL = '/api/tickets'
 
 const createTicket = async (ticketData, token) => {
   const config = {
